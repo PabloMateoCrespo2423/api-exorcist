@@ -4,7 +4,7 @@ const vision = require('@google-cloud/vision');
 const cors = require('cors'); // Importar cors
 // Inicializar la aplicación Express
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000; 
 // Habilitar CORS
 app.use(cors());
 // Crear un cliente de Google Vision
