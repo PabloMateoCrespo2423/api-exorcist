@@ -8,7 +8,9 @@ const PORT = process.env.PORT || 3000;
 // Habilitar CORS
 app.use(cors());
 // Crear un cliente de Google Vision
-const client = new vision.ImageAnnotatorClient();
+const client = new vision.ImageAnnotatorClient({
+    credentials: JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON) || undefined
+});
 
 app.get('/detect-objects', async (req, res) => {
     const imageUrl = req.query.url; // Tomar la URL de la imagen de los parámetros de la petición
